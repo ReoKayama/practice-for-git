@@ -1,0 +1,526 @@
+<div class='schedule-wrapper'>
+    <p class='title'>My Schedule</p>
+    <div class='box-wrapper'>
+        <ul class='quarter-selecter'>
+            <li class='quarter-item active'>1Q</li>
+            <li class='quarter-item'>2Q</li>
+            <li class='quarter-item'>3Q</li>
+            <li class='quarter-item'>4Q</li>
+        </ul>
+        <div class='lecture-schedule'>
+            <ul class='daily-items'>
+               <li class='day'>月</li>
+               <li class='day'>火</li>
+               <li class='day'>水</li>
+               <li class='day'>木</li>
+               <li class='day'>金</li>
+            </ul>
+            <ul class='period-column'>
+                <li class='period-item'>1</li>
+                <li class='period-item'>2</li>
+                <li class='period-item'>3</li>
+                <li class='period-item'>4</li>
+                <li class='period-item'>5</li>
+            </ul>
+            <div class='schedule-box'>
+                <ul class='date-columns'>
+                    <li class='date-column'>
+                        <ul class='lec-items'>
+                            <li class='lec-item'>
+                                <% if @fav_mon1.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_mon1.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_mon1.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_mon1.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_mon1.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_mon1 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_mon2.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_mon2.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_mon2.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_mon2.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_mon2.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_mon2 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_mon3.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_mon3.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_mon3.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_mon3.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_mon3.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_mon3 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_mon4.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_mon4.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_mon4.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_mon4.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_mon4.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_mon4 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_mon5.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_mon5.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_mon5.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_mon5.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_mon5.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_mon5 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='date-column'>
+                        <ul class='lec-items'>
+                            <li class='lec-item'>
+                                <% if @fav_tue1.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_tue1.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_tue1.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_tue1.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_tue1.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_tue1 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_tue2.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_tue2.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_tue2.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_tue2.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_tue2.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_tue2 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_tue3.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_tue3.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_tue3.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_tue3.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_tue3.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_tue3 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_tue4.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_tue4.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_tue4.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_tue4.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_tue4.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_tue4 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_tue5.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_tue5.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_tue5.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_tue5.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_tue5.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_tue5 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='date-column'>
+                        <ul class='lec-items'>
+                            <li class='lec-item'>
+                                <% if @fav_wed1.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_wed1.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_wed1.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_wed1.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_wed1.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_wed1 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_wed2.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_wed2.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_wed2.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_wed2.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_wed2.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_wed2 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_wed3.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_wed3.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_wed3.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_wed3.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_wed3.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_wed3 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_wed4.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_wed4.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_wed4.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_wed4.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_wed4.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_wed4 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_wed5.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_wed5.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_wed5.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_wed5.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_wed5.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_wed5 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='date-column'>
+                        <ul class='lec-items'>
+                            <li class='lec-item'>
+                                <% if @fav_thr1.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_thr1.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_thr1.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_thr1.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_thr1.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_thr1 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_thr2.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_thr2.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_thr2.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_thr2.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_thr2.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_thr2 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_thr3.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_thr3.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_thr3.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_thr3.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_thr3.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_thr3 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_thr4.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_thr4.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_thr4.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_thr4.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_thr4.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_thr4 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_thr5.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_thr5.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_thr5.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_thr5.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_thr5.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_thr5 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='date-column'>
+                        <ul class='lec-items'>
+                            <li class='lec-item'>
+                                <% if @fav_fri1.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_fri1.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_fri1.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_fri1.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_fri1.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_fri1 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_fri2.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_fri2.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_fri2.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_fri2.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_fri2.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_fri2 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_fri3.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_fri3.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_fri3.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_fri3.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_fri3.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_fri3 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_fri4.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_fri4.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_fri4.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_fri4.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_fri4.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_fri4 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                            <li class='lec-item'>
+                                <% if @fav_fri5.count == 1 %>
+                                    <%= Lecture.find_by(id: @fav_fri5.first.lec_id).lec_name %><br>
+                                    <a class='fav-delete' href='/fav_delete/<%= @fav_fri5.first.lec_id %>/<%= @user.id %>'>削除</a>
+                                <% elsif @fav_fri5.count == 0 %>
+                                    未登録
+                                <% else %>
+                                    <%= @fav_fri5.count %>つの講義が<br>登録されています
+                                    <div class='reference-button open'>参照</div>
+                                    <div class='reference-button close'>閉じる</div>
+                                    <ul class='favo-items'>
+                                        <% for fav_lec in @fav_fri5 %>
+                                            <li class='favo-item'><%= Lecture.find_by(id: fav_lec.lec_id).lec_name %>
+                                            <a class='fav-delete' href='/fav_delete/<%= fav_lec.lec_id %>/<%= @user.id %>'>削除</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

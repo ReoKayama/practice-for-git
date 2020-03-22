@@ -1,0 +1,56 @@
+<div class='lecture-wrapper'>
+    <div class='top-information'>
+        <div class='left'>
+            <p class='name'><%= @lecture.lec_name %></p>
+            <p class='total-evaluation'>総合評価　<%= total_evaluation(@lecture) %></p>
+        </div>
+        <div class='right'>
+            <% if logged_in? %>
+                <a class='review-button favorite' href="/lecture_favorite/<%= @lecture.id %>/<%= current_user.id %>">My時間割に追加</a>
+                <a class='review-button' href="/lecture_review/<%= @lecture.id %>/<%= current_user.id %>">評価を回答する</a>
+            <% end %>
+            <p class='major'><%= @lecture.en_major %> <%= @lecture.en_grade %>00</p>
+            <p class='professor'>担当; <%= @lecture.professor %></p>
+            <p class='date'><%= @lecture.t_quarter %>Q<%= @lecture.t_day %><%= @lecture.t_period %>時限</p>
+        </div>
+    </div>
+    <p class='border'> </p>
+    <div class='middle-information'>
+        <div class='left'>
+            <p><span class='question'>授業内容理解度</span><span class='answer'><%= @understanding_score %></span></p>
+            <p><span class='question'>単位取得難易度</span><span class='answer'><%= @getting_score %></span></p>
+            <p><span class='question'>授業の面白さ</span><span class='answer'><%= @interest_score %></span></p>
+            <p><span class='question'>出席義務</span><span class='answer'><%= @attendance_score %></span></p>
+            <p><span class='question'>成績評価</span><span class='answer'><%= @method_score %></span></p>
+        </div>
+        <div class='right'>
+            <p><span class='question'>平均点数</span><span class='answer'><%= @score_score %></span></p>
+            <p><span class='question'>単位取得率</span><span class='answer'><%= @tokutan_score %>%</span></p>
+            <p><span class='question'>掲載予定</span><span class='answer'><%= @lecture.ev_score %></span></p>
+        </div>
+    </div>
+    <p class='border'> </p>
+    <div class='bottom-information'>
+        <p class='review-title'>授業レビュー</p>
+        <% if logged_in? %>
+            <a class='review-button' href="/lecture_review/<%= @lecture.id %>/<%= current_user.id %>">評価を回答する</a>
+        <% end %>
+        <ul class='review-items'>
+            <% require 'date' %>
+            <% for review in @reviews %>
+            <% reviewer = User.find_by(id: review.user_id) %>
+                <% if not review.comment.empty? %>
+                    <li class='review-item'>
+                        <p class='reviewer'>
+                            <%= reviewer.major %>系 <%= reviewer.grade %>年
+                            <span><%= review.created_at.strftime("%Y年%m月%d日") %>に回答</span>
+                        </p>
+                        <p class='comment'>
+                            <%= review.comment %>
+                        </p>
+                    </li>
+                <% end %>
+            <% end %>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<div class='lecture_review_wrapper'>
+    <h3 class='title'>授業レビュー回答 (1分)</h3>
+    <%= form_for(:review, url: "/lecture_review/#{@lecture.id}/#{@reviewer.id}_path") do |f| %>
+        <p class='lecture_name'><%= @lecture.lec_name %></p>
+        <p class='warning'>※必須</p>
+        <ul class='question-items'>
+            <li class='question-item'>
+                <p class='content'>Q1<br>授業内容の理解度を5段階で教えてください。</p>
+                <%= f.radio_button :review_understanding, 1, id: 'us-1' %>
+                <%= f.label :'1', class: 'radio-label', for: 'us-1' %>
+                <%= f.radio_button :review_understanding, 2, id: 'us-2' %>
+                <%= f.label :'2', class: 'radio-label', for: 'us-2' %>
+                <%= f.radio_button :review_understanding, 3, id: 'us-3' %>
+                <%= f.label :'3', class: 'radio-label', for: 'us-3' %>
+                <%= f.radio_button :review_understanding, 4, id: 'us-4' %>
+                <%= f.label :'4', class: 'radio-label', for: 'us-4' %>
+                <%= f.radio_button :review_understanding, 5, id: 'us-5' %>
+                <%= f.label :'5', class: 'radio-label', for: 'us-5' %>
+            </li>
+            <li class='question-item'>
+                <p class='content'>Q2<br>授業内容の単位取得難易度を5段階で教えてください。</p>
+                <%= f.radio_button :review_getting, 1, id: 'get-1' %>
+                <%= f.label :'1', class: 'radio-label', for: 'get-1' %>
+                <%= f.radio_button :review_getting, 2, id: 'get-2' %>
+                <%= f.label :'2', class: 'radio-label', for: 'get-2' %>
+                <%= f.radio_button :review_getting, 3, id: 'get-3' %>
+                <%= f.label :'3', class: 'radio-label', for: 'get-3' %>
+                <%= f.radio_button :review_getting, 4, id: 'get-4' %>
+                <%= f.label :'4', class: 'radio-label', for: 'get-4' %>
+                <%= f.radio_button :review_getting, 5, id: 'get-5' %>
+                <%= f.label :'5', class: 'radio-label', for: 'get-5' %>
+            </li>
+            <li class='question-item'>
+                <p class='content'>Q3<br>授業内容の面白さを5段階で教えてください。</p>
+                <%= f.radio_button :review_interest, 1, id: 'int-1' %>
+                <%= f.label :'1', class: 'radio-label', for: 'int-1' %>
+                <%= f.radio_button :review_interest, 2, id: 'int-2' %>
+                <%= f.label :'2', class: 'radio-label', for: 'int-2' %>
+                <%= f.radio_button :review_interest, 3, id: 'int-3' %>
+                <%= f.label :'3', class: 'radio-label', for: 'int-3' %>
+                <%= f.radio_button :review_interest, 4, id: 'int-4' %>
+                <%= f.label :'4', class: 'radio-label', for: 'int-4' %>
+                <%= f.radio_button :review_interest, 5, id: 'int-5' %>
+                <%= f.label :'5', class: 'radio-label', for: 'int-5' %>
+            </li>
+            <li class='question-item question-item-square'>
+                <p class='content'>Q4<br>取得点数を教えてください</p>
+                <%= f.radio_button :review_score, 55, id: 'sco-1' %>
+                <%= f.label :'60~', class: 'radio-label radio-label-first', for: 'sco-1' %>
+                <%= f.radio_button :review_score, 65, id: 'sco-2' %>
+                <%= f.label :'60~70', class: 'radio-label', for: 'sco-2' %>
+                <%= f.radio_button :review_score, 75, id: 'sco-3' %>
+                <%= f.label :'70~80', class: 'radio-label', for: 'sco-3' %>
+                <%= f.radio_button :review_score, 85, id: 'sco-4' %>
+                <%= f.label :'80~90', class: 'radio-label', for: 'sco-4' %>
+                <%= f.radio_button :review_score, 95, id: 'sco-5' %>
+                <%= f.label :'90~100', class: 'radio-label', for: 'sco-5' %>
+            </li>
+            <li class='question-item question-item-square'>
+                <p class='content'>Q5<br>単位の取得状況を教えてください.</p>
+                <%= f.radio_button :review_tokutan, '得単', id: 'tok-1' %>
+                <%= f.label :'得単', class: 'radio-label radio-label-first', for: 'tok-1' %>
+                <%= f.radio_button :review_tokutan, '落単', id: 'tok-2' %>
+                <%= f.label :'落単', class: 'radio-label', for: 'tok-2' %>
+            </li>
+            <li class='question-item question-item-square wide'>
+                <p class='content'>Q6<br>出席義務について教えてください。</p>
+                <%= f.radio_button :review_attendance, '毎回出席有', id: 'att-1' %>
+                <%= f.label :'毎回出席有', class: 'radio-label radio-label-first', for: 'att-1' %>
+                <%= f.radio_button :review_attendance, 'ときどき出席有', id: 'att-2' %>
+                <%= f.label :'ときどき出席有', class: 'radio-label', for: 'att-2' %>
+                <%= f.radio_button :review_attendance, '出席無し', id: 'att-3' %>
+                <%= f.label :'出席無し', class: 'radio-label', for: 'att-3' %>
+            </li>
+            <li class='question-item question-item-square wide'>
+                <p class='content'>Q7<br>成績評価の方法を教えてください。</p>
+                <%= f.radio_button :review_method, 'テスト100%', id: 'met-1' %>
+                <%= f.label :'テスト100%', class: 'radio-label radio-label-first', for: 'met-1' %>
+                <%= f.radio_button :review_method, 'テストと課題', id: 'met-2' %>
+                <%= f.label :'テストと課題', class: 'radio-label', for: 'met-2' %>
+                <%= f.radio_button :review_method, '課題100%', id: 'met-3' %>
+                <%= f.label :'課題100%', class: 'radio-label', for: 'met-3' %>
+                <%= f.radio_button :review_method, 'その他', id: 'met-4' %>
+                <%= f.label :'その他', class: 'radio-label', for: 'met-4' %>
+            </li>
+            <li class='question-item'>
+                <p class='content'>Q8<br>その他、自由な印象を教えてください。</p>
+                <%= f.text_area :review_free, class: 'comment-form' %>
+            </li>
+        </ul>
+        <%= f.submit '授業評価を送信', class: 'form-btn' %>
+    <% end %>
+</div>

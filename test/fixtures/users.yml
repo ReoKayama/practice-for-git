@@ -1,0 +1,14 @@
+michael:
+    name: Michael Example
+    email: michael@example.com
+    password_digest: <%= User.digest('password') %>
+    grade: 1
+    major: '物質理工学院'
+    
+    
+archer:
+    name: Sterling Archer
+    email: duchess@example.gov
+    password_digest: <%= User.digest('password') %>
+    grade: 2
+    major: '応用科学系'

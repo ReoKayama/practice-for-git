@@ -1,0 +1,15 @@
+ja:
+ activerecord:
+ models: 
+    user: ユーザー
+    lecture: 講義
+ attributes:
+    user:
+        name:  ニックネーム
+        email: メールアドレス
+        grade: 学年
+        major: 系/学院
+        password: パスワード
+    
+    lecture:
+        lec_name: 講義名

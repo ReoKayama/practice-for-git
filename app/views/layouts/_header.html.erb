@@ -1,0 +1,36 @@
+<header class='header clearfix'>
+    <h1 class='header-left'><a href='/'>Lecceed</a></h1>
+        <% if logged_in? %>
+            <div class='header-right'>
+            <%= link_to 'My時間割', user_path(current_user), class: 'log-btn' %>
+            <%= link_to 'ログアウト', logout_path, class: 'log-btn', method: :delete %>
+            <%= link_to '講義を探す', lecture_list_path, class: 'find-btn' %>
+            </div>
+            <div class='ladder-button'>
+                <i class='fa fa-list'></i>
+                <i class="fa fa-times delete"></i>
+                <div class='ladder-menu'>
+                    <%= link_to '講義を探す', lecture_list_path, class: 'menu' %>
+                    <%= link_to 'My時間割', user_path(current_user), class: 'menu' %>
+                    <%= link_to 'ログアウト', logout_path, class: 'menu', method: :delete %>
+                    <%= link_to 'プロフィール編集', edit_user_path(current_user), class: 'menu' %>
+                </div>
+            </div>
+        <% else %>
+            <div class='header-right narrow'>
+            <%= link_to '新規登録', signup_path, class: 'log-btn' %>
+            <%= link_to 'ログイン', login_path, class: 'log-btn' %>
+            <%= link_to '講義を探す', lecture_list_path, class: 'find-btn' %>
+            </div>
+            <div class='ladder-button'>
+                <i class='fa fa-list'></i>
+                <i class="fa fa-times delete"></i>
+                <div class='ladder-menu'>
+                    <a class='menu' href='/login'>ログイン</a>
+                    <a class='menu' href='/signup'>新規登録</a>
+                    <a class='menu' href='/lecture_list'>講義を探す</a>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</header>

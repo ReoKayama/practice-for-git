@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+<div class='signup-wrapper clearfix'>
+    <h3 class='signup-title'>会員情報の編集</h3>
+    <p class='txt'>基本情報<span class='warning'> ※必須</span></p>
+    
+    <%= render 'shared/error_messages' %>
+    
+    <ul class='form-items'>
+        <li class='form-item'>
+            <p class='information-title'>メールアドレス</p>
+            <%= f.text_field :email, class: 'form-control' %>
+        </li>
+        <li class='form-item'>
+            <p class='information-title'>パスワード</p>
+            <%= f.password_field :password, class: 'form-control' %>
+        </li>
+        <li class='form-item'>
+            <p class='information-title'>パスワード確認</p>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </li>
+        <li class='form-item'>
+            <p class='information-title'>ニックネーム</p>
+            <%= f.text_field :name, class: 'form-control' %>
+        </li>
+        <li class='form-item border-none'>
+            <p class='information-title'>学年</p>
+            <%= f.text_field :grade, class: 'form-control half-size' %>
+            <span>年</span>
+            <%= f.text_field :major, class: 'form-control half-size' %>
+            <span>系/学院</span>
+        </li>
+    </ul>
+    <%= f.submit '編集を保存する', class: 'btn btn-signup' %>
+</div>
+<% end %>
